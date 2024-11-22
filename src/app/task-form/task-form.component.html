@@ -1,0 +1,76 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h2>{{ isEditMode ? 'Edit Task' : 'Add Task' }}</h2>
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="project-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" formControlName="name" class="form-control">
+            <div *ngIf="taskForm.controls['name'].invalid && taskForm.controls['name'].touched" class="text-danger">
+              Name is required.
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" formControlName="description" class="form-control"></textarea>
+            <div *ngIf="taskForm.controls['description'].invalid && taskForm.controls['description'].touched" class="text-danger">
+              Description is required.
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="dueDate">Due Date</label>
+            <input type="date" id="dueDate" formControlName="dueDate" class="form-control">
+            <div *ngIf="taskForm.controls['dueDate'].invalid && taskForm.controls['dueDate'].touched" class="text-danger">
+              Due Date is required.
+            </div>
+          </div>
+          
+          <div *ngIf="isEditMode">
+            <div class="form-group">
+              <label for="isCompleted">Is Completed</label>
+              <select id="isCompleted" formControlName="isCompleted" class="form-control">
+                <option [value]="true">Yes</option>
+                <option [value]="false">No</option>
+              </select>
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <label for="projectId">Project</label>
+            <select id="projectId" formControlName="projectId" class="form-control">
+              <option *ngFor="let project of projects" [value]="project.id">{{ project.name }}</option>
+            </select>
+            <div *ngIf="taskForm.controls['projectId'].invalid && taskForm.controls['projectId'].touched" class="text-danger">
+              Project is required.
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="userId">User</label>
+            <select id="userId" formControlName="userId" class="form-control">
+              <option *ngFor="let user of users" [value]="user.id">{{ user.username }}</option>
+            </select>
+            <div *ngIf="taskForm.controls['userId'].invalid && taskForm.controls['userId'].touched" class="text-danger">
+              User is required.
+            </div>
+          </div>
+
+          <!-- Ajout du sélecteur de complexité -->
+          <div class="form-group">
+            <label for="complexity">Complexity</label>
+            <select id="complexity" formControlName="complexity" class="form-control">
+              <option [value]="'Low'">Low</option>
+              <option [value]="'Medium'">Medium</option>
+              <option [value]="'High'">High</option>
+            </select>
+          </div>
+      
+          <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Save' }}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

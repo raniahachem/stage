@@ -1,0 +1,38 @@
+.sidebar-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Assurez-vous que la barre latérale occupe toute la hauteur disponible */
+    background-color: #fff; /* Couleur de fond de la barre latérale */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Ombre légère */
+    padding: 15px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.logo-img img {
+    width: 150px; /* Ajustez la taille de l'image du logo selon vos besoins */
+    height: auto; /* Garantit que l'image conserve ses proportions */
+}
+
+.nav {
+    margin-top: 80px; /* Place la liste des items de menu en bas de la barre latérale */
+}
+
+.nav-item {
+    list-style-type: none; /* Supprime les puces de la liste */
+    padding: 10px 0; /* Ajoute de l'espacement entre les items de menu */
+}
+
+.nav-link {
+    display: block;
+    padding: 10px;
+    color: #555; /* Couleur du texte des items de menu */
+    text-decoration: none; /* Supprime le soulignement du lien */
+}
+
+.nav-link:hover {
+    background-color: #f0f0f0; /* Couleur de fond au survol */
+}

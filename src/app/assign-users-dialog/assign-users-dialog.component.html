@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Assign User to this project</h1>
+<div mat-dialog-content>
+  <div *ngIf="unassignedUsers.length === 0">
+    No users available for assignment.
+  </div>
+  <div *ngIf="unassignedUsers.length > 0">
+    <div *ngFor="let user of unassignedUsers" (click)="selectUser(user)">
+      <div class="user-item" [class.selected]="isSelected(user)">
+        {{ user.username }}
+      </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button (click)="assignUser()" [disabled]="!selectedUser">Assign Selected User</button>
+</div>

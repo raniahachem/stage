@@ -1,0 +1,41 @@
+.project-form {
+    background-color: #f2f3f8; /* Dark green background */
+    padding: 20px;
+    border-radius: 5px;
+    color: #fff; /* White text color */
+  }
+  
+  .project-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .project-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .project-form .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f5f5f5; /* Light background color for input */
+    color: #333; /* Dark text color for input */
+  }
+  
+  .project-form .form-control:focus {
+    border-color: #0a1053; /* Dark green border on focus */
+    box-shadow: 0 0 5px #0a1053; /* Dark green shadow on focus */
+  }
+  
+  .project-form .btn-primary {
+    background-color: #0a1053; /* Dark green button */
+    border-color: #0a1053;
+    color: #fff;
+  }
+  
+  .project-form .btn-primary:hover {
+    background-color: #0a1053; /* Darker green on hover */
+    border-color: #0a1053;
+  }
+  

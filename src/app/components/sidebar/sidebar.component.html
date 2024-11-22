@@ -1,0 +1,36 @@
+<div class="sidebar-wrapper">
+    <div class="logo">
+        <div class="logo-img">
+            <img src="/assets/img/poulina.png" style="width: 150px; height: auto;" />
+        </div>
+    </div>
+
+    <ul class="nav">
+        <!-- Boucle pour afficher les éléments du menu -->
+        <li
+            routerLinkActive="active"
+            *ngFor="let menuItem of menuItems"
+            class="{{menuItem.class}} nav-item"
+        >
+            <!-- Lien pour les éléments de menu normaux -->
+            <a
+                class="nav-link"
+                *ngIf="menuItem.path !== '/logout'"
+                [routerLink]="[menuItem.path]"
+            >
+                <i class="material-icons">{{ menuItem.icon }}</i>
+                <p>{{ menuItem.title }}</p>
+            </a>
+
+            <!-- Bouton Log Out -->
+            <a
+                class="nav-link"
+                *ngIf="menuItem.path === '/logout'"
+                (click)="logout()"
+            >
+                <i class="material-icons">{{ menuItem.icon }}</i>
+                <p>{{ menuItem.title }}</p>
+            </a>
+        </li>
+    </ul>
+</div>

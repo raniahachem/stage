@@ -1,0 +1,33 @@
+/* assign-users-dialog.component.css */
+
+.mat-dialog-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .mat-dialog-content {
+    padding: 20px;
+  }
+  
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .user-item {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid transparent;
+  }
+  
+  .user-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .user-item.selected {
+    border-color: #007bff;
+    background-color: #cce5ff;
+  }
+  

@@ -1,0 +1,63 @@
+<div class="main-content">
+  <div class="container-fluid" *ngIf="project">
+    <div class="card">
+      <div class="card-header card-header-danger">
+        <h4 class="card-title">Project Details</h4>
+        <p class="card-category">Project information</p>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tim-typo">
+              <h2><span class="tim-note">Project Name:</span> {{ project.name }}</h2>
+            </div>
+            <div class="tim-typo">
+              <h3><span class="tim-note">Description:</span></h3>
+              <p>{{ project.description }}</p>
+            </div>
+            <div class="tim-typo">
+              <h4><span class="tim-note">Start Date:</span> {{ project.startDate | date }}</h4>
+            </div>
+            <div class="tim-typo">
+              <h4><span class="tim-note">End Date:</span> {{ project.endDate | date }}</h4>
+            </div>
+            <div class="tim-typo">
+              <h4><span class="tim-note">Assigned Users:</span></h4>
+              <ul *ngIf="project.users && project.users.length > 0; else noUsers">
+                <li *ngFor="let user of project.users">
+                  {{ user.username }} ({{ user.email }})
+                </li>
+              </ul>
+              <ng-template #noUsers>
+                <p>No assigned users yet.</p>
+              </ng-template>
+            </div>
+            <div class="tim-typo">
+              <h4><span class="tim-note">Tasks:</span></h4>
+              <ul *ngIf="project.projectTasks && project.projectTasks.length > 0; else noTasks">
+                <li *ngFor="let task of project.projectTasks">
+                  {{ task.name }} - Due Date: {{ task.dueDate | date }} - Completed: {{ task.isCompleted ? 'Yes' : 'No' }}
+                </li>
+              </ul>
+              <ng-template #noTasks>
+                <p>No tasks added yet.</p>
+              </ng-template>
+            </div>
+            <div class="tim-typo">
+              <button class="btn btn-sm btn-info" (click)="editProject()">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!project" class="main-content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <h4>Loading project details...</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

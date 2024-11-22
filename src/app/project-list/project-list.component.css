@@ -1,0 +1,30 @@
+.card {
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .card-header-info {
+    background-color: #3f51b5;
+    color: #fff;
+  }
+  
+  .card-header-info h4 {
+    margin: 0;
+  }
+  
+  .card-category {
+    color: #999;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  /* Pour afficher deux cartes par ligne sur les écrans larges */
+  @media (min-width: 992px) {
+    .col-lg-4 {
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+    }
+  }
+  

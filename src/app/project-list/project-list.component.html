@@ -1,0 +1,28 @@
+<div class="main-content">
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <a (click)="addProject()" class="btn btn-primary">Add Project</a>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 col-lg-4" *ngFor="let project of projects">
+        <div class="card mb-3" (click)="viewProjectDetails(project.id)">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">{{ project.name }}</h4>
+          </div>
+          <div class="card-body">
+            <p><strong>Description:</strong> {{ project.description }}</p>
+            <p><strong>Start Date:</strong> {{ project.startDate | date }}</p>
+            <p><strong>End Date:</strong> {{ project.endDate | date }}</p>
+            <div class="text-right">
+              <button class="btn btn-sm btn-warning" (click)="openAssignUsersModal(project)">Assign Users</button>
+              <button class="btn btn-sm btn-info" (click)="editProject(project.id)">Edit</button>
+              <button class="btn btn-sm btn-danger" (click)="deleteProject(project.id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
